@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 scweewffNội dung đầu tiên
 Nội dung thứ 2
 djdjvbdfcasjc
 Nd thứ 3
+=======
+Nội dung đầu tiên
+sđhfrfrf
+dfdkfhfj
+>>>>>>> 7eef8d9e794b5196045f499d5bf556777c06b74d
