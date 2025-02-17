@@ -1,0 +1,19 @@
+@{
+    ViewBag.Title = "Tính chỉ số BMI";
+}
+<h2>Tính chỉ số BMI</h2>
+
+<form method="post" asp-controller="BMI" asp-action="Index">
+    <label>Chiều cao (m):</label>
+    <input type="number" step="0.01" name="Height" required />
+
+    <label>Cân nặng (kg):</label>
+    <input type="number" step="0.1" name="Weight" required />
+
+    <button type="submit">Tính BMI</button>
+</form>
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <p>@ViewBag.Message</p>
+}
