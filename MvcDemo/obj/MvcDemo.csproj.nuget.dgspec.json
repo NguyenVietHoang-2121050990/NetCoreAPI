@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\PTPMQL-Templete\\CRUD_Mvc\\MvcDemo\\MvcDemo.csproj": {}
+    "D:\\Net_Core_API\\MvcDemo\\MvcDemo.csproj": {}
   },
   "projects": {
-    "D:\\PTPMQL-Templete\\CRUD_Mvc\\MvcDemo\\MvcDemo.csproj": {
+    "D:\\Net_Core_API\\MvcDemo\\MvcDemo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PTPMQL-Templete\\CRUD_Mvc\\MvcDemo\\MvcDemo.csproj",
+        "projectUniqueName": "D:\\Net_Core_API\\MvcDemo\\MvcDemo.csproj",
         "projectName": "MvcDemo",
-        "projectPath": "D:\\PTPMQL-Templete\\CRUD_Mvc\\MvcDemo\\MvcDemo.csproj",
+        "projectPath": "D:\\Net_Core_API\\MvcDemo\\MvcDemo.csproj",
         "packagesPath": "C:\\Users\\Minh Hanh\\.nuget\\packages\\",
-        "outputPath": "D:\\PTPMQL-Templete\\CRUD_Mvc\\MvcDemo\\obj\\",
+        "outputPath": "D:\\Net_Core_API\\MvcDemo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Minh Hanh\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -44,6 +44,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "EPPlus": {
+              "target": "Package",
+              "version": "[7.6.1, )"
+            },
             "Microsoft.EntityFrameworkCore.SQLite": {
               "target": "Package",
               "version": "[8.0.8, )"

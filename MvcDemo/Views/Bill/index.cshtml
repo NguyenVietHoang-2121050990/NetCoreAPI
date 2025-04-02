@@ -1,0 +1,19 @@
+@{
+    ViewBag.Title = "Tính tiền hóa đơn";
+}
+<h2>Tính tiền hóa đơn</h2>
+
+<form method="post">
+    <label>Số lượng:</label>
+    <input type="text" name="Quantity" required />
+
+    <label>Đơn giá:</label>
+    <input type="text" name="Price" required />
+
+    <button type="submit">Tính tiền</button>
+</form>
+
+@if (ViewBag.Message != null)
+{
+    <p>@ViewBag.Message</p>
+}
