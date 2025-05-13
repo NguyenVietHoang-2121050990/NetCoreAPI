@@ -1,54 +1,77 @@
 using System;
+using System.Data;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MvcDemo.Data;
 using MvcDemo.Models;
+using MvcDemo.Models.Process;
+using OfficeOpenXml;
+using X.PagedList;
+using X.PagedList.Mvc.Core;
+
 
 namespace MvcDemo.Controllers
 {
     public class PersonController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly ExcelProcess _excelProcess;
 
         public PersonController(ApplicationDbContext context)
         {
             _context = context;
+            _excelProcess = new ExcelProcess();
         }
-
         // GET: Person
-        public async Task<IActionResult> Index(string searchString)
+
+public IActionResult Index(string searchString, int? page)
+{
+    ViewData["CurrentFilter"] = searchString;
+
+    var persons = _context.Person.AsQueryable();
+
+    if (!string.IsNullOrEmpty(searchString))
+    {
+        persons = persons.Where(p => p.Fullname.Contains(searchString));
+    }
+
+    int pageSize = 5;
+    int pageNumber = page ?? 1;
+
+    // Cách nhanh: gọi ToList() trước rồi mới phân trang
+    var pagedList = persons.ToList().ToPagedList(pageNumber, pageSize);
+
+    return View(pagedList);
+}
+
+
+        // Export Excel
+        public IActionResult Download()
         {
-            ViewData["CurrentFilter"] = searchString;
-
-            var persons = from p in _context.Person
-                          select p;
-
-            if (!string.IsNullOrEmpty(searchString))
+            var fileName = "YourFileName.xlsx";
+            using (var excelPackage = new ExcelPackage())
             {
-                persons = persons.Where(p => p.Fullname.Contains(searchString));
+                var worksheet = excelPackage.Workbook.Worksheets.Add("Sheet 1");
+
+                // Header
+                worksheet.Cells["A1"].Value = "PersonID";
+                worksheet.Cells["B1"].Value = "FullName";
+                worksheet.Cells["C1"].Value = "Address";
+
+                // Data
+                var personList = _context.Person.ToList();
+                worksheet.Cells["A2"].LoadFromCollection(personList, true);
+
+                var stream = new MemoryStream(excelPackage.GetAsByteArray());
+
+                return File(stream,
+                    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    fileName);
             }
-
-            return View(await persons.ToListAsync());
-        }
-
-        // GET: Person/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var person = await _context.Person
-                .FirstOrDefaultAsync(m => m.PersonId == id);
-            if (person == null)
-            {
-                return NotFound();
-            }
-
-            return View(person);
         }
 
         // GET: Person/Create
@@ -57,9 +80,8 @@ namespace MvcDemo.Controllers
             return View();
         }
 
-        // POST: Person/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]  
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("PersonId,Fullname,Address")] Person person)
         {
             if (ModelState.IsValid)
@@ -71,86 +93,59 @@ namespace MvcDemo.Controllers
             return View(person);
         }
 
-        // GET: Person/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        // GET: Person/Upload
+        public IActionResult Upload()
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var person = await _context.Person.FindAsync(id);
-            if (person == null)
-            {
-                return NotFound();
-            }
-            return View(person);
+            return View();
         }
 
-        // POST: Person/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PersonId,Fullname,Address")] Person person)
+        public async Task<IActionResult> Upload(IFormFile file)
         {
-            if (id != person.PersonId)
+            if (file != null)
             {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
+                string fileExtension = Path.GetExtension(file.FileName).ToLower();
+                if (fileExtension != ".xls" && fileExtension != ".xlsx")
                 {
-                    _context.Update(person);
+                    ModelState.AddModelError("", "Please choose a valid Excel file to upload (xls or xlsx).");
+                }
+                else
+                {
+                    var fileName = DateTime.Now.ToString("yyyyMMddHHmmss") + fileExtension;
+                    var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", "excels");
+                    if (!Directory.Exists(folderPath))
+                    {
+                        Directory.CreateDirectory(folderPath);
+                    }
+
+                    var filePath = Path.Combine(folderPath, fileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream);
+                    }
+
+                    // Đọc Excel
+                    var dt = _excelProcess.ExcelToDataTable(filePath);
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        if (dt.Rows[i].ItemArray.Length >= 3)
+                        {
+                            var ps = new Person
+                            {
+                                PersonId = Convert.ToInt32(dt.Rows[i][0]),
+                                Fullname = dt.Rows[i][1]?.ToString() ?? "",
+                                Address = dt.Rows[i][2]?.ToString() ?? ""
+                            };
+                            _context.Add(ps);
+                        }
+                    }
                     await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!PersonExists(person.PersonId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
             }
-            return View(person);
-        }
-
-        // GET: Person/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var person = await _context.Person
-                .FirstOrDefaultAsync(m => m.PersonId == id);
-            if (person == null)
-            {
-                return NotFound();
-            }
-
-            return View(person);
-        }
-
-        // POST: Person/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var person = await _context.Person.FindAsync(id);
-            if (person != null)
-            {
-                _context.Person.Remove(person);
-            }
-
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return View();
         }
 
         private bool PersonExists(int id)

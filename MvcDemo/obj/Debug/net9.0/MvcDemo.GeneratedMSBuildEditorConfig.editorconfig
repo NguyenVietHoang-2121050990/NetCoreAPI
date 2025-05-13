@@ -17,81 +17,101 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MvcDemo
 build_property.RootNamespace = MvcDemo
-build_property.ProjectDir = D:\PTPMQL-Templete\CRUD_Mvc\MvcDemo\
+build_property.ProjectDir = D:\Net_Core_API\MvcDemo\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\PTPMQL-Templete\CRUD_Mvc\MvcDemo
+build_property.MSBuildProjectDirectory = D:\Net_Core_API\MvcDemo
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/PTPMQL-Templete/CRUD_Mvc/MvcDemo/Views/Employee/Create.cshtml]
+[D:/Net_Core_API/MvcDemo/Views/Bill/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbFxpbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Net_Core_API/MvcDemo/Views/BMI/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQk1JXGluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Net_Core_API/MvcDemo/Views/Employee/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PTPMQL-Templete/CRUD_Mvc/MvcDemo/Views/Employee/Delete.cshtml]
+[D:/Net_Core_API/MvcDemo/Views/Employee/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PTPMQL-Templete/CRUD_Mvc/MvcDemo/Views/Employee/Details.cshtml]
+[D:/Net_Core_API/MvcDemo/Views/Employee/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PTPMQL-Templete/CRUD_Mvc/MvcDemo/Views/Employee/Edit.cshtml]
+[D:/Net_Core_API/MvcDemo/Views/Employee/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PTPMQL-Templete/CRUD_Mvc/MvcDemo/Views/Employee/Index.cshtml]
+[D:/Net_Core_API/MvcDemo/Views/Employee/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PTPMQL-Templete/CRUD_Mvc/MvcDemo/Views/Home/Index.cshtml]
+[D:/Net_Core_API/MvcDemo/Views/Grade/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JhZGVcaW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Net_Core_API/MvcDemo/Views/HelloWorld/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGVsbG9Xb3JsZFxpbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Net_Core_API/MvcDemo/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PTPMQL-Templete/CRUD_Mvc/MvcDemo/Views/Home/Privacy.cshtml]
+[D:/Net_Core_API/MvcDemo/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PTPMQL-Templete/CRUD_Mvc/MvcDemo/Views/Person/Create.cshtml]
+[D:/Net_Core_API/MvcDemo/Views/Person/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PTPMQL-Templete/CRUD_Mvc/MvcDemo/Views/Person/Delete.cshtml]
+[D:/Net_Core_API/MvcDemo/Views/Person/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PTPMQL-Templete/CRUD_Mvc/MvcDemo/Views/Person/Details.cshtml]
+[D:/Net_Core_API/MvcDemo/Views/Person/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PTPMQL-Templete/CRUD_Mvc/MvcDemo/Views/Person/Edit.cshtml]
+[D:/Net_Core_API/MvcDemo/Views/Person/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PTPMQL-Templete/CRUD_Mvc/MvcDemo/Views/Person/Index.cshtml]
+[D:/Net_Core_API/MvcDemo/Views/Person/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PTPMQL-Templete/CRUD_Mvc/MvcDemo/Views/Shared/Error.cshtml]
+[D:/Net_Core_API/MvcDemo/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PTPMQL-Templete/CRUD_Mvc/MvcDemo/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Net_Core_API/MvcDemo/Views/Shared/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXGluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Net_Core_API/MvcDemo/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PTPMQL-Templete/CRUD_Mvc/MvcDemo/Views/_ViewImports.cshtml]
+[D:/Net_Core_API/MvcDemo/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PTPMQL-Templete/CRUD_Mvc/MvcDemo/Views/_ViewStart.cshtml]
+[D:/Net_Core_API/MvcDemo/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PTPMQL-Templete/CRUD_Mvc/MvcDemo/Views/Shared/_Layout.cshtml]
+[D:/Net_Core_API/MvcDemo/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-f4t1gxaucg
